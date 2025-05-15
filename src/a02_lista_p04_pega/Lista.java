@@ -1,4 +1,4 @@
-package a01_lista_p03;
+package a02_lista_p04_pega;
 
 public class Lista {
 
@@ -20,6 +20,14 @@ public class Lista {
 			}
 		}
 		return this.alunos.length;
+	}
+	
+	public Aluno pega(int posicao) {
+		// Testa se a posição é válida
+		if (posicao < alunos.length) {
+			return alunos[posicao];
+		}
+		return null;
 	}
 
 	@Override

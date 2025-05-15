@@ -1,4 +1,4 @@
-package a01_lista_p03;
+package a02_lista_p04_pega;
 
 public class Programa {
 

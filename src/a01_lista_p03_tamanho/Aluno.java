@@ -1,4 +1,4 @@
-package a01_lista_p03;
+package a01_lista_p03_tamanho;
 
 public class Aluno {
 	
