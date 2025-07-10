@@ -1,4 +1,4 @@
-package a03_lista_p08_generalizacao;
+package a05_lista_revisao;
 
 public class Aluno {
 	
@@ -20,8 +20,26 @@ public class Aluno {
 	}
 	
 	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Aluno) {
+			Aluno outro = (Aluno) obj;
+			return this.nome.equals(outro.nome) && this.email.equals(outro.email);
+		}
+		return false;
+	}
+	
+	@Override
 	public String toString() {
 		return nome + " (" + email + ")";
 	}
 
 }
+
+
+
+
+
+
+
+
+

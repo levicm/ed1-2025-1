@@ -1,4 +1,4 @@
-package a03_lista_p09_interface;
+package a05_lista_revisao;
 
 public class ListaEncadeada implements Lista {
 
@@ -30,6 +30,12 @@ public class ListaEncadeada implements Lista {
 	public void remove(int posicao) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int busca(Object elemento) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

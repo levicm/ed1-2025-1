@@ -1,20 +1,17 @@
-package a04_lista_p11_busca;
+package a06_comparable_p01;
 
-public class ListaArranjo implements Lista {
+public class ListaArranjo<T> implements Lista<T> {
 
-	Object[] elementos = new Object[20];
+	private Object[] elementos = new Object[20];
+	private int quantidade = 0;
 
-	public void adiciona(Object aluno) {
+	public void adiciona(T elemento) {
 		garanteEspaco();
-		for (int i = 0; i < this.elementos.length; ++i) {
-			if (this.elementos[i] == null) {
-				this.elementos[i] = aluno;
-				break;
-			}
-		}
+		this.elementos[quantidade] = elemento;
+		this.quantidade++;
 	}
 	
-	public void adiciona(Object aluno, int posicao) {
+	public void adiciona(T aluno, int posicao) {
 		garanteEspaco();
 		int tamanho = tamanho();
 		if (posicao <= tamanho) {
@@ -49,10 +46,10 @@ public class ListaArranjo implements Lista {
 		return this.elementos.length;
 	}
 	
-	public Object pega(int posicao) {
+	public T pega(int posicao) {
 		// Testa se a posição é válida
 		if (posicao < elementos.length) {
-			return elementos[posicao];
+			return (T) elementos[posicao];
 		}
 		return null;
 	}
@@ -67,7 +64,7 @@ public class ListaArranjo implements Lista {
 	}
 
 	@Override
-	public int busca(Object elemento) {
+	public int busca(T elemento) {
 		int tamanho = tamanho();
 		if (elemento != null) {
 			for (int i = 0; i < tamanho; ++i) {

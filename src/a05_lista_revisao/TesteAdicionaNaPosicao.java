@@ -1,10 +1,14 @@
-package a02_lista_p05_ad_pos;
+package a05_lista_revisao;
 
 public class TesteAdicionaNaPosicao {
 
 	public static void main(String[] args) {
-		Lista lista = new Lista();
-		
+		Lista<Aluno> lista1 = new ListaArranjo<Aluno>(); 
+		teste(lista1);
+	}
+
+	private static void teste(Lista<Aluno> lista) {
+		System.out.println("Testando lista...");
 		lista.adiciona(new Aluno("Pedro", "pedro@gmail.com"));
 		lista.adiciona(new Aluno("Maria", "maria@gmail.com"));
 		lista.adiciona(new Aluno("Joana", "joana@gmail.com"));
@@ -13,7 +17,8 @@ public class TesteAdicionaNaPosicao {
 
 		lista.adiciona(new Aluno("Cacilda", "cacilda@gmail.com"), 3);
 		System.out.println(lista.tamanho() == 4);
-		System.out.println(lista.pega(3).getNome().equals("Cacilda"));
+		Aluno aluno = lista.pega(3);
+		System.out.println(aluno.getNome().equals("Cacilda"));
 		System.out.println(lista);
 		
 		lista.adiciona(new Aluno("Joao", "joao@gmail.com"), 1);
