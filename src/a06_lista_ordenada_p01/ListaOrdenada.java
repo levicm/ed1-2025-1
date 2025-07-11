@@ -3,31 +3,38 @@ package a06_lista_ordenada_p01;
 public class ListaOrdenada {
 
 	Object[] elementos = new Object[20];
+	private int tamanho = 0;
 
 	public void adiciona(Comparable elemento) {
 		garanteEspaco();
-		// Encontra a posição correta para inserir o novo elemento
-
-		// Deslocar elementos maiores que o novo elemento
-
-		// Adiciona o novo elemento na posição correta
+		if (tamanho == 0) {
+			elementos[0] = elemento;
+			tamanho++;
+		} else {
+			for (int i = 0; i < tamanho; ++i) {
+				if (elemento.compareTo((Comparable) elementos[i]) < 0) {
+					adiciona(elemento, i);
+					return;
+				}
+			}
+		}
 	}
 	
 	private void adiciona(Object aluno, int posicao) {
 		garanteEspaco();
-		int tamanho = tamanho();
 		if (posicao <= tamanho) {
 			// desloca elementos posteriores à posição
 			for (int i = tamanho; i > posicao; --i) {
 				elementos[i] = elementos[i - 1];
 			}
 			elementos[posicao] = aluno;
+			tamanho++;
 		}
 	}
 	
 	private void garanteEspaco() {
 		// Testar se precisa aumentar o espaço
-		if (tamanho() == elementos.length) {
+		if (tamanho == elementos.length) {
 			// Aumentar o espaço (dobrar o tamanho do array)
 			int novoTamnho = elementos.length * 2;
 			System.out.println("Aumentando o tamanho do array para " + novoTamnho);
@@ -40,12 +47,7 @@ public class ListaOrdenada {
 	}
 
 	public int tamanho() {
-		for (int i = 0; i < this.elementos.length; ++i) {
-			if (this.elementos[i] == null) {
-				return i;
-			}
-		}
-		return this.elementos.length;
+		return this.tamanho;
 	}
 	
 	public Object pega(int posicao) {
@@ -57,7 +59,6 @@ public class ListaOrdenada {
 	}
 	
 	public void remove(int posicao) {
-		int tamanho = tamanho();
 		if (posicao < tamanho) {
 			for (int i = posicao; i < tamanho; ++i) {
 				elementos[i] = elementos[i + 1];
@@ -66,7 +67,6 @@ public class ListaOrdenada {
 	}
 
 	public int busca(Object elemento) {
-		int tamanho = tamanho();
 		if (elemento != null) {
 			for (int i = 0; i < tamanho; ++i) {
 				if (elemento.equals(this.elementos[i])) {

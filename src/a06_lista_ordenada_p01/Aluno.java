@@ -1,14 +1,16 @@
 package a06_lista_ordenada_p01;
 
-public class Aluno {
+public class Aluno implements Comparable<Aluno> {
 	
 	private String nome;
 	private String email;
+	private Double nota;
 
-	public Aluno(String nome, String email) {
+	public Aluno(String nome, String email, Double nota) {
 		super();
 		this.nome = nome;
 		this.email = email;
+		this.nota = nota;
 	}
 	
 	public String getNome() {
@@ -17,6 +19,10 @@ public class Aluno {
 	
 	public String getEmail() {
 		return email;
+	}
+
+	public Double getNota() {
+		return nota;
 	}
 	
 	@Override
@@ -30,7 +36,12 @@ public class Aluno {
 	
 	@Override
 	public String toString() {
-		return nome + " (" + email + ")";
+		return nome + " [" + nota + "]";
+	}
+
+	@Override
+	public int compareTo(Aluno o) {
+		return Double.compare(this.nota, o.nota);
 	}
 
 }
