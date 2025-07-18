@@ -11,12 +11,14 @@ public class ListaOrdenada {
 			elementos[0] = elemento;
 			tamanho++;
 		} else {
+			int posicao = tamanho;
 			for (int i = 0; i < tamanho; ++i) {
-				if (elemento.compareTo((Comparable) elementos[i]) < 0) {
-					adiciona(elemento, i);
-					return;
+				if (elemento.compareTo((Comparable) elementos[i]) <= 0) {
+					posicao = i;
+					break;
 				}
 			}
+			adiciona(elemento, posicao);
 		}
 	}
 	
