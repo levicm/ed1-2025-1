@@ -1,0 +1,4 @@
+{
+    "gitflow.disableOnRepo": true,
+    "java.debug.settings.onBuildFailureProceed": true
+}
